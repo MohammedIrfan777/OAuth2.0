@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: product-catalogue-service
+        uri: lb://product-catalogue-service
+        predicates:
+         - Method=GET
+      - id: pricing-service
+        uri: lb://pricing-service
+        predicates:
+        - Method=GET
+server:
+  port: 8080
+ 
+       
+

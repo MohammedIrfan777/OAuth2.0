@@ -1,0 +1,22 @@
+#spring.application.name=product-catalogue-service
+#server.port=8081
+
+spring:
+  application:
+    name: product-catalogue-service
+server:
+  port: 8073
+  
+logging:  file:    name: logs/product-catalogue.log
+        
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream, info, health
+        web.base-path: '/'
+
+hystrix:
+  dashboard:
+     proxy-stream-allow-list: '*'
